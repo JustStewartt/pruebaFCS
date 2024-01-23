@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minijuego de Drag and Drop</title>
     <link rel="stylesheet" href="<?= base_url('/css/style.css') ?>">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 <body>
     <!-- Modal con las instrucciones -->
@@ -14,6 +15,7 @@
             <p>Arrastra los objetos a su contenedor correspondiente. Evita fallar ya que te restarán puntos. Termina antes del tiempo para pasar al siguiente nivel.</p>
         </div>
     </div>
+    <a href="<?php echo site_url('/articulos') ?>" class="btn btn-info mb-2">Menu Principal</a>
 
     <div id="game-container">
         <div class="score-container">

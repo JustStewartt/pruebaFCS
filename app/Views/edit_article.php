@@ -34,7 +34,7 @@
       </div>
       <div class="form-group">
         <label>Palabras Clave</label>
-        <input type="text" name="pClaave" class="form-control" value="<?php echo $article_obj['pClave']; ?>">
+        <input type="text" name="pClave" class="form-control" value="<?php echo $article_obj['pClave']; ?>">
       </div>
       <div class="form-group">
         <label>Edad Minima</label>
@@ -58,7 +58,7 @@
       </div>
 
       <div class="form-group">
-        <button type="submit" class="btn btn-danger btn-block">Save Data</button>
+        <button type="submit" class="btn btn-danger btn-block">Guardar Datos</button>
       </div>
     </form>
   </div>
