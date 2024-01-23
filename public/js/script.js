@@ -1,6 +1,8 @@
 $(document).ready(function () {
     var puntuacion = 0;
     var nivelActual = 1;
+    var tiempoRestante;
+    var numObjetos;
 
     // Definir configuraciones de niveles
     var niveles = [
@@ -21,6 +23,14 @@ $(document).ready(function () {
     function actualizarTiempo() {
         $('#tiempo').text(tiempoRestante);
     }
+
+    // Mostrar el pop-up de instrucciones al cargar la página
+    $('#instruccionesModal').modal('show');
+
+    // Inicializar el juego al hacer clic en "Comenzar Juego" en el pop-up de instrucciones
+    $('#comenzarJuegoBtn').on('click', function() {
+        $('#instruccionesModal').modal('hide');
+        iniciarJuego();
 
     // Función para crear objetos aleatorios
     function crearObjetos() {
@@ -70,7 +80,7 @@ $(document).ready(function () {
         $('#contenedor-juego').append('<h3 class="text-center">Puntuación final: ' + puntuacion + '</h3>');
     }
 
-    // Resto del código...
+   
 
     // Hacer que los contenedores sean soltables
     $('.categoria').droppable({
@@ -91,16 +101,7 @@ $(document).ready(function () {
         }
     });
 
-    // Función para crear objetos aleatorios en 4 categorías
-    function crearObjetos() {
-        var categorias = ['Categoria1', 'Categoria2', 'Categoria3', 'Categoria4'];
 
-        for (var i = 0; i < numObjetos; i++) {
-            var categoriaAleatoria = categorias[getRandomInt(0, categorias.length - 1)];
-            var objeto = $('<div class="objeto">' + categoriaAleatoria + '</div>');
-            objeto.data('categoria', categoriaAleatoria);
-            $('#contenedor-objetos').append(objeto);
-        }
-    }
 
-});
+});}
+)

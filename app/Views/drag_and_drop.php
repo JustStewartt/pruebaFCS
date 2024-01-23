@@ -7,6 +7,25 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <style>
         /* Estilos CSS */
+        .categoria {
+            width: 100px;
+            height: 100px;
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            line-height: 100px;
+        }
+
+        .objeto {
+            width: 80px;
+            height: 80px;
+            background-color: #28a745;
+            color: #fff;
+            text-align: center;
+            line-height: 80px;
+            cursor: move;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
@@ -44,7 +63,7 @@
         <div id="contenedor-juego" class="row">
             <?php foreach ($categorias as $categoria) : ?>
                 <div class="col-md-3">
-                    <div class="categoria" data-categoria="<?= $categoria ?>"><?= $categoria ?></div>
+                    <div class="categoria" data-categoria="<?= $categoria['nombre'] ?>"><?= $categoria['nombre'] ?></div>
                 </div>
             <?php endforeach; ?>
         </div>
@@ -52,18 +71,17 @@
         <div class="row">
             <div class="col-md-12">
                 <div id="contenedor-objetos" class="d-flex justify-content-around flex-wrap">
-                    <!-- Objetos -->
+                    <?php foreach ($objetos as $objeto) : ?>
+                        <div class="objeto" data-categoria="<?= $objeto['categoria_id'] ?>"><?= $objeto['nombre'] ?></div>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </div>
     </div>
+    </div>
     <script src="<?= base_url('public/js/script.js') ?>"></script>
 
     <script>
-        // Mostrar el pop-up de instrucciones al cargar la página
-        $(document).ready(function() {
-            $('#instruccionesModal').modal('show');
-        });
     </script>
 </body>
 </html>
