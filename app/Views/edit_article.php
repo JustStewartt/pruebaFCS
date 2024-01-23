@@ -17,7 +17,7 @@
     <script src="https://cdn.tiny.cloud/1/lkzacumv5gg2qtzvxl6xowjhns8guqgptqotviq4u3ehhdhc/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
       tinymce.init({
-  selector: '#default',
+  selector: 'textarea',
   menubar: '',
   toolbar: 'bold italic alignleft aligncenter alignright alignjustify'
 });
@@ -54,7 +54,7 @@
       </div>
       <div class="form-group">
         <label>Contenido</label>
-        <textarea name="contenido" id="#default" value="<?php echo $article_obj['contenido']; ?>">Hello, World!</textarea>
+        <textarea name="contenido" value="<?php echo $article_obj['contenido']; ?>">Hello, World!</textarea>
       </div>
 
       <div class="form-group">

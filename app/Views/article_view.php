@@ -8,9 +8,12 @@
 </head>
 <body>
 <div class="container mt-4">
+  <div class="d-flex justify-content-end">
+        <a href="<?php echo site_url('/articulos') ?>" class="btn btn-info mb-2">Menu Principal</a>
+  </div>
     <div class="d-flex justify-content-end">
         <a href="<?php echo site_url('/article-form') ?>" class="btn btn-success mb-2">Agregar Articulo</a>
-	</div>
+      </div>
   <div class="mt-3">
      <table class="table table-bordered" id="article-list">
        <thead>

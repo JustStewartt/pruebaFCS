@@ -1,64 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drag and Drop Game</title>
+    <title>Minijuego</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <style>
-        .category {
-            border: 2px solid #ccc;
-            padding: 10px;
-            margin: 10px;
-            min-height: 100px;
-        }
-
-        .item {
-            border: 1px solid #ddd;
-            padding: 10px;
-            margin: 10px 0;
-            cursor: move;
-        }
+        /* Estilos CSS */
     </style>
 </head>
 <body>
+    <div class="container">
+        <!-- Pop-up de instrucciones -->
+        <div class="modal fade" id="instruccionesModal" tabindex="-1" role="dialog" aria-labelledby="instruccionesModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="instruccionesModalLabel">Instrucciones</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Arrastra los objetos a su contenedor correspondiente. Evita fallar ya que te restarán puntos. Termina antes del tiempo para pasar al siguiente nivel.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Comenzar Juego</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <h2>Drag and Drop Game</h2>
+        <h2 class="text-center mb-4">Minijuego de Arrastrar y Soltar</h2>
 
-    <div id="category1" class="category" ondrop="drop(event, 1)" ondragover="allowDrop(event)"></div>
-    <div id="category2" class="category" ondrop="drop(event, 2)" ondragover="allowDrop(event)"></div>
-    <div id="category3" class="category" ondrop="drop(event, 3)" ondragover="allowDrop(event)"></div>
-    <div id="category4" class="category" ondrop="drop(event, 4)" ondragover="allowDrop(event)"></div>
+        <!-- Puntuación actual -->
+        <div class="text-center mb-3">
+            <h4>Puntuación: <span id="puntuacion">0</span></h4>
+            <div class="d-flex justify-content-end">
+        <a href="<?php echo site_url('/articulos') ?>" class="btn btn-info mb-2">Menu Principal</a>
+  </div>
+        </div>
 
-    <div id="item1" class="item" draggable="true" ondragstart="drag(event)">Item 1</div>
-    <div id="item2" class="item" draggable="true" ondragstart="drag(event)">Item 2</div>
-    <div id="item3" class="item" draggable="true" ondragstart="drag(event)">Item 3</div>
-    <div id="item4" class="item" draggable="true" ondragstart="drag(event)">Item 4</div>
+        <div id="contenedor-juego" class="row">
+            <?php foreach ($categorias as $categoria) : ?>
+                <div class="col-md-3">
+                    <div class="categoria" data-categoria="<?= $categoria ?>"><?= $categoria ?></div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div id="contenedor-objetos" class="d-flex justify-content-around flex-wrap">
+                    <!-- Objetos -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="<?= base_url('public/js/script.js') ?>"></script>
 
     <script>
-        function allowDrop(event) {
-            event.preventDefault();
-        }
-
-        function drag(event) {
-            event.dataTransfer.setData("text", event.target.id);
-        }
-
-        function drop(event, category) {
-            event.preventDefault();
-            var itemId = event.dataTransfer.getData("text");
-            var itemElement = document.getElementById(itemId);
-            var categoryElement = document.getElementById("category" + category);
-
-            // Update category in the database
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", "<?= site_url('game/updateCategory') ?>", true);
-            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            xhr.send("itemId=" + itemId + "&category=" + category);
-
-            // Move item to the new category
-            categoryElement.appendChild(itemElement);
-        }
+        // Mostrar el pop-up de instrucciones al cargar la página
+        $(document).ready(function() {
+            $('#instruccionesModal').modal('show');
+        });
     </script>
-
 </body>
 </html>

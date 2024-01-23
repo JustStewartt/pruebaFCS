@@ -13,7 +13,7 @@ class Article extends BaseController
     public function index()
     {
         $articleModel = new ArticleModel();
-        $article['articles'] = $articleModel->orderBy('fecha', 'DESC')->limit(6)->findAll();
+        $article['articles'] = $articleModel->orderBy('fecha', 'DESC')->limit(6)->findAll(6);
         return view('article_view', $article);
     }
 
@@ -21,7 +21,7 @@ class Article extends BaseController
     public function listaArticulosPortada()
     {
         $articleModel = new ArticleModel();
-        $article['articles'] = $articleModel->orderBy('fecha', 'DESC')->limit(6)->findAll();
+        $article['articles'] = $articleModel->orderBy('fecha', 'DESC')->limit(6)->findAll(6);
         return view('articles_list', $article);
     }
 
