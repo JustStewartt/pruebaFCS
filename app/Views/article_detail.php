@@ -6,10 +6,10 @@
     <title>Detalle del Artículo</title>
 </head>
 <body>
-    <h1><?= $articulo['titulo']; ?></h1>
-    <img src="<?= $articulo['imagen']; ?>" alt="Imagen principal">
-    <p><?= $articulo['contenido']; ?></p>
-    <p>Fecha: <?= $articulo['fecha']; ?></p>
+    <h1><?= $article['titulo']; ?></h1>
+    <?php echo '<img height="80" width="80" src="data:image/jpeg;base64,'.base64_encode($article["imagen"]).'"/>' ?>
+    <p><?= $article['contenido']; ?></p>
+    <p>Fecha: <?= $article['fecha']; ?></p>
     <a href="<?= base_url('articulos'); ?>">Volver a la lista</a>
 </body>
 </html>

@@ -17,10 +17,19 @@ class Article extends BaseController
         return view('article_view', $article);
     }
 
+
+    public function listaArticulosPortada()
+    {
+        $articleModel = new ArticleModel();
+        $article['articles'] = $articleModel->orderBy('fecha', 'DESC')->limit(6)->findAll();
+        return view('articles_list', $article);
+    }
+
     public function detalleArticulo($id)
     {
-        $article = $this->model->find($id);
-        return $this->respond($article);
+        $articleModel = new ArticleModel();
+        $article ['articles'] = $articleModel->find($id);
+        return view('article_detail', $article);
     }
 
     public function singleArticle($id = null){
