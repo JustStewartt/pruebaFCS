@@ -10,6 +10,9 @@
 <body>
 <div class="p-4 p-lg-5 bg-light rounded-3 text-center">
     <h1 class="display-5 fw-bold">Breaking News</h1>
+    <div class="d-flex justify-content-end">
+        <a href="<?php echo site_url('/drag-and-drop') ?>" class="btn btn-info mb-2">Mini Juego</a>
+  </div>
     </div>
 
     <section class="pt-4">

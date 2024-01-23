@@ -82,6 +82,7 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     
+    
 
     <script>
         $(document).ready(function () {
@@ -186,6 +187,14 @@
             }
         }
     });
+    $('.objeto').draggable({
+    revert: function(droppableObj) {
+        // Revertir solo si no se clasificó correctamente en la categoría de destino
+        return !droppableObj || !droppableObj.hasClass('categoria');
+    },
+    cursor: 'move'
+});
+
 
 
 
