@@ -16,11 +16,11 @@
         </div>
     </div>
     <a href="<?php echo site_url('/articulos') ?>" class="btn btn-info mb-2">Menu Principal</a>
-
-    <div id="game-container">
-        <div class="score-container">
+    <div class="score-container text-center mb-3">
             <p id="score">Puntuación: 0</p>
         </div>
+    <div id="game-container">
+        
 
         <div class="category" id="category1" data-category="A"></div>
         <div class="category" id="category2" data-category="B"></div>
