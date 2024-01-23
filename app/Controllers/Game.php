@@ -8,24 +8,16 @@ class Game extends BaseController
 {
     public function dragAndDrop()
     {
-        $categoriaModel = new CategoriaModel();
-        $objetoModel = new ObjetoModel();
 
-        // Obtener todas las categorías para pasarlas a la vista
-        $data['categorias'] = $categoriaModel->findAll();
-
-        // Obtener objetos aleatorios para mostrar en el juego
-        $data['objetos'] = $objetoModel->obtenerObjetosAleatorios(8);
-
-        return view('drag_and_drop', $data);
+        return view('drag_and_drop');
     }
 
     // Agregar una función para obtener objetos aleatorios desde la base de datos
-    public function obtenerObjetosAleatorios($cantidad)
-    {
-        $objetoModel = new ObjetoModel();
-        $objetos = $objetoModel->obtenerObjetosAleatorios($cantidad);
-        return $this->response->setJSON($objetos);
-    }
+    //public function obtenerObjetosAleatorios($cantidad)
+    //{
+      //  $objetoModel = new ObjetoModel();
+     //   $objetos = $objetoModel->obtenerObjetosAleatorios($cantidad);
+      //  return $this->response->setJSON($objetos);
+  //  }
 }
 

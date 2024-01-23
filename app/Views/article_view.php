@@ -37,7 +37,7 @@
              <td><?php echo $article['titulo']; ?></td>
              <td><?php echo $article['pClave']; ?></td>
              <td><?php echo $article['edadMin']; ?></td>
-             <td><?php echo $article['edadMax']; ?></td>
+             <td><?php echo $article['edadMax']; ?></td>             
              <td><?php echo '<img height="80" width="80" src="data:image/jpeg;base64,'.base64_encode($article["imagen"]).'"/>' ?></td>
              <td><?php echo $article['sintesis']; ?></td>
              <td><?php echo $article['contenido']; ?></td>
